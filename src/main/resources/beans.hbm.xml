@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.du.mall.entity">
+    <class name="User" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="name"></property>
+        <property name="email"></property>
+        <property name="password"></property>
+        <property name="role"></property>
+    </class>
+    <class name="Product" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="name"></property>
+        <property name="type"></property>
+        <property name="description"></property>
+        <property name="cover"></property>
+        <property name="price"></property>
+        <property name="discount"></property>
+        <property name="owner"></property>
+        <property name="taken" type="boolean"></property>
+    </class>
+    <class name="OrderItem" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="buyer"></property>
+        <property name="seller"></property>
+        <property name="product"></property>
+        <property name="status"></property>
+        <property name="createAt" type="timestamp"></property>
+    </class>
+    <class name="Comment" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="content"></property>
+        <property name="owner"></property>
+        <property name="ownerId"></property>
+        <property name="avatar"></property>
+        <property name="product"></property>
+        <property name="createAt" type="timestamp"></property>
+    </class>
+    <class name="CartItem" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="productId"></property>
+        <property name="productName"></property>
+        <property name="buyerId"></property>
+        <property name="buyer"></property>
+        <property name="sellerId"></property>
+        <property name="createAt" type="timestamp"></property>
+    </class>
+    <class name="Profile" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="userId"></property>
+        <property name="coin"></property>
+        <property name="email"></property>
+        <property name="address"></property>
+        <property name="mobile"></property>
+        <property name="tel"></property>
+        <property name="name"></property>
+        <property name="avatar"></property>
+    </class>
+    <class name="Picture" >
+        <id name="id" >
+            <generator class="identity"/>
+        </id>
+        <property name="owner"></property>
+        <property name="createdAt" type="timestamp"></property>
+        <property name="dir"></property>
+        <property name="productId"></property>
+    </class>
+</hibernate-mapping>

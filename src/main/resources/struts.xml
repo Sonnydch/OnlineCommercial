@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.convention.action.packages" value="com.du.mall.action"/>
+    <constant name="struts.convention.default.parent.package" value="json-default"/>
+    <constant name="struts.custom.i18n.resources" value="messages" />
+   <!-- <constant name="struts.i18n.encoding" value="UTF-8" />-->
+    <package name="default" namespace="/" extends="struts-default,json-default">
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+        <action name="login" class="com.du.mall.action.UserLoginAction">
+            <result type="json">
+                <param name="root">map</param>
+            </result>
+        </action>
+        <action name="detailInfo" class="com.du.mall.action.DetailAction">
+            <result name="success">/detail.jsp</result>
+        </action>
+        <action name="product" class="com.du.mall.action.ProductAction">
+            <result name="success">/success.jsp</result>
+            <result name="listProduct">/listProduct.jsp</result>
+            <result name="modify">/modifyProduct.jsp</result>
+            <result name="listProductByType">/main.jsp</result>
+        </action>
+        <action name="comment" class="com.du.mall.action.CommentAction">
+            <result name="success">/listComment.jsp</result>
+        </action>
+        <action name="myindex" class="com.du.mall.action.MyIndexAction">
+            <result name="success">/main.jsp</result>
+        </action>
+        <action name="orderItem" class="com.du.mall.action.OrderItemAction">
+            <result name="listBuyer">/orderList.jsp</result>
+            <result name="listSeller">/orderSeller.jsp</result>
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="register" class="com.du.mall.action.UserRegisterAction">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+        <action name="cart" class="com.du.mall.action.CartAction">
+            <result name="success">/listCart.jsp</result>
+        </action>
+        <action name="profile" class="com.du.mall.action.ProfileAction">
+            <result name="success">/profile.jsp</result>
+            <result name="listAll">/listProfile.jsp</result>
+        </action>
+        <action name="picture" class="com.du.mall.action.PictureAction">
+            <result name="success">/modifyProduct.jsp</result>
+        </action>
+    </package>
+</struts>
