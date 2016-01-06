@@ -125,7 +125,7 @@
             alert("请先登录!");
             return;
         }else{
-            location.href = "orderItem!addOrderItem?productId=${product.id}";
+            location.href = "orderItem!addToPay?productId=${product.id}";
         }
     }
     function goCart(){

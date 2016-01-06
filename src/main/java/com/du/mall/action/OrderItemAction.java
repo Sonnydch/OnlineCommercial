@@ -34,6 +34,16 @@ public class OrderItemAction extends ActionSupport {
 
   private String status;
 
+  private float amount;
+
+  public float getAmount() {
+    return amount;
+  }
+
+  public void setAmount(float amount) {
+    this.amount = amount;
+  }
+
   public String getStatus() {
     return status;
   }
@@ -99,13 +109,21 @@ public class OrderItemAction extends ActionSupport {
     orderItem.setCreateAt(new Date());
     orderItem.setProduct(productId);
     orderItem.setSeller(seller);
-    orderItem.setStatus("buy");//buy ship finish fail;
+    orderItem.setStatus("pay");//buy pay ship finish fail;
     product.setTaken(true);
     productService.updatePoduct(product);
     orderItemService.addOrderItem(orderItem);
     orderItemList = orderItemService.findOrderItemByBuyer(user.getId());
     toDetailList();
     return "listBuyer";
+  }
+
+  public String addToPay(){
+    User user = (User)ActionContext.getContext().getSession().get("user");
+    buyer = user.getId();
+    product = productService.findById(productId).get(0);
+    amount = product.getPrice();
+    return "listAccount";
   }
 
   private void toDetailList() {

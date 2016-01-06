@@ -39,7 +39,7 @@
                 <td>${car.buyer}</td>
                 <td>${car.sellerId}</td>
                 <td>${car.createAt}</td>
-                <td><a href="detailInfo?productId=${car.productId}">查看</a>||<a href="orderItem!addOrderItem?productId=${car.productId}">购买</a>||<a href="cart!deleteCartItem?cartItemId=${car.id}">删除</a></td>
+                <td><a href="detailInfo?productId=${car.productId}">查看</a>||<a href="orderItem!addToPay?productId=${car.productId}">购买</a>||<a href="cart!deleteCartItem?cartItemId=${car.id}">删除</a></td>
             </tr>
         </s:iterator>
     </tbody>

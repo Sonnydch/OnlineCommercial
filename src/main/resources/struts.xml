@@ -39,6 +39,7 @@
         <action name="orderItem" class="com.du.mall.action.OrderItemAction">
             <result name="listBuyer">/orderList.jsp</result>
             <result name="listSeller">/orderSeller.jsp</result>
+            <result name="listAccount">/listAccount.jsp</result>
             <result name="success">/success.jsp</result>
         </action>
         <action name="register" class="com.du.mall.action.UserRegisterAction">
